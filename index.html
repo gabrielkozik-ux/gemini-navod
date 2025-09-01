@@ -3,152 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jak začít s Google Gemini</title>
+    <title>Interaktivní průvodce pro Google Gemini</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
-        .step-card {
-            background-color: #f9fafb; /* gray-50 */
-            border-left: 4px solid #4f46e5; /* indigo-600 */
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        .tab-active {
+            border-bottom-color: #4f46e5;
+            color: #4f46e5;
+            font-weight: 600;
         }
-        .step-number {
-            background-color: #4f46e5; /* indigo-600 */
-            color: white;
-            border-radius: 9999px;
-            width: 2.5rem;
-            height: 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.25rem;
-            margin-right: 1rem;
-            flex-shrink: 0;
-        }
-        code {
-            background-color: #e5e7eb; /* gray-200 */
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.375rem;
-            font-family: monospace;
+        .prompt-card {
+            transition: all 0.3s ease-in-out;
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-50 text-gray-800">
 
-    <div class="container mx-auto max-w-3xl p-4 sm:p-6 md:p-8">
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-5xl">
 
-        <header class="text-center mb-10">
-            <h1 class="text-4xl font-bold text-gray-900">Vítejte v Google Gemini</h1>
-            <p class="text-lg text-gray-600 mt-2">Váš průvodce krok za krokem pro první použití.</p>
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <div class="flex justify-center items-center gap-4">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-600"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">Interaktivní průvodce světem Google Gemini</h1>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Váš chytrý asistent pro práci, studium i zábavu.</p>
         </header>
 
-        <main>
-            <!-- Část 1: Přihlášení -->
-            <section class="mb-12">
-                <h2 class="text-2xl font-semibold mb-6 border-b-2 border-indigo-500 pb-2">1. Přihlášení do Gemini</h2>
+        <!-- Tabs -->
+        <div class="mb-8 border-b border-gray-200">
+            <nav class="flex flex-wrap -mb-px" aria-label="Tabs">
+                <button class="tab-btn tab-active w-full sm:w-auto text-center whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-tab="co-je-gemini">
+                    Co je Gemini?
+                </button>
+                <button class="tab-btn w-full sm:w-auto text-center whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="jak-zacit">
+                    Jak začít?
+                </button>
+                <button class="tab-btn w-full sm:w-auto text-center whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="co-umi">
+                    Co umí? (Interaktivně)
+                </button>
+                <button class="tab-btn w-full sm:w-auto text-center whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="tipy">
+                    Tipy na příkazy
+                </button>
+                <button class="tab-btn w-full sm:w-auto text-center whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="pozor">
+                    Na co pozor?
+                </button>
+            </nav>
+        </div>
 
-                <div class="step-card flex items-start">
-                    <div class="step-number">1</div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Navštivte stránku</h3>
-                        <p>Otevřete si webový prohlížeč (například Chrome, Firefox, nebo Safari) a zadejte do adresního řádku adresu: <a href="https://gemini.google.com" target="_blank" class="text-indigo-600 hover:underline font-medium">gemini.google.com</a></p>
-                    </div>
+        <!-- Tab Content -->
+        <main id="tab-content">
+            <!-- Co je Gemini? -->
+            <div id="co-je-gemini" class="tab-pane active">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-900">Váš osobní asistent s umělou inteligencí</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        Představte si Gemini jako svého extrémně schopného kolegu. Můžete si s ním povídat (psát), pokládat mu složité otázky, nechat si vysvětlit komplikovaná témata, tvořit různé druhy textů, shrnovat dlouhé dokumenty nebo videa a dokonce i generovat obrázky na přání. Funguje na základě obrovského množství dat, takže jeho znalosti jsou opravdu široké a dokáže vám pomoci téměř s čímkoliv.
+                    </p>
                 </div>
+            </div>
 
-                <div class="step-card flex items-start">
-                    <div class="step-number">2</div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Klikněte na "Přihlásit se"</h3>
-                        <p>V pravém horním rohu obrazovky najdete tlačítko pro přihlášení. Klikněte na něj.</p>
-                        <!-- Příklad tlačítka -->
-                        <div class="mt-4 p-3 bg-white border rounded-lg inline-block shadow-sm">
-                             <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors">Přihlásit se</a>
+            <!-- Jak začít? -->
+            <div id="jak-zacit" class="tab-pane hidden">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex items-center gap-4 mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-600"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72"/></svg>
+                            <h3 class="text-xl font-semibold text-gray-900">1. Webový prohlížeč</h3>
                         </div>
+                        <p class="text-gray-600">Nejjednodušší cesta. Stačí jít na adresu <a href="https://gemini.google.com" target="_blank" class="text-indigo-600 font-medium hover:underline">gemini.google.com</a>, přihlásit se svým Google účtem a můžete hned začít psát své dotazy do chatovacího okna.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex items-center gap-4 mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-600"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+                            <h3 class="text-xl font-semibold text-gray-900">2. Mobilní aplikace</h3>
+                        </div>
+                        <p class="text-gray-600">Stáhněte si aplikaci "Google Gemini" z Google Play nebo App Store. V Androidu může dokonce nahradit klasického Google Asistenta, takže ho vyvoláte podržením zapínacího tlačítka nebo povelem "Hey Google".</p>
                     </div>
                 </div>
+            </div>
 
-                <div class="step-card flex items-start">
-                    <div class="step-number">3</div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Použijte svůj Google účet</h3>
-                        <p>Zobrazí se vám standardní přihlašovací obrazovka od Google. Zadejte e-mail a heslo ke svému stávajícímu Google účtu (např. Gmail). Pokud už jste v prohlížeči přihlášení, tento krok se může přeskočit automaticky.</p>
-                        <p class="mt-2 text-sm text-gray-500">Nemusíte si vytvářet žádnou novou registraci, stačí vám účet, který již používáte pro Gmail, Google Disk atd.</p>
-                    </div>
-                </div>
-            </section>
+            <!-- Co umí? (Interaktivně) -->
+            <div id="co-umi" class="tab-pane hidden">
+                 <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-2xl font-semibold mb-2 text-gray-900">Interaktivní generátor příkladů</h2>
+                    <p class="text-gray-600 mb-6">Nevíte, jak začít? Zkuste si sestavit příklad příkazu (promptu) a inspirujte se.</p>
 
-            <!-- Část 2: Jak Gemini používat -->
-            <section>
-                <h2 class="text-2xl font-semibold mb-6 border-b-2 border-indigo-500 pb-2">2. Jak Gemini používat</h2>
-
-                 <div class="step-card flex items-start">
-                    <div class="step-number">1</div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Zadejte svůj dotaz (prompt)</h3>
-                        <p>Po přihlášení uvidíte hlavní rozhraní, které připomíná chat. Dole na stránce najdete pole s textem "Zadejte zde svůj dotaz". Zde můžete psát své otázky, příkazy nebo úkoly pro Gemini.</p>
-                    </div>
-                </div>
-
-                <div class="step-card">
-                    <div class="flex items-start">
-                         <div class="step-number">2</div>
+                    <div class="grid sm:grid-cols-2 gap-4 mb-4">
                         <div>
-                            <h3 class="text-xl font-semibold mb-2">Jednoduchý příklad</h3>
-                            <p class="mb-4">Zkuste napsat něco jednoduchého a stiskněte Enter nebo klikněte na ikonu odeslání (obvykle papírové letadýlko).</p>
+                            <label for="prompt-goal" class="block text-sm font-medium text-gray-700">1. Zvolte cíl:</label>
+                            <select id="prompt-goal" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                <option value="content">Tvorba obsahu</option>
+                                <option value="info">Práce s informacemi</option>
+                                <option value="plan">Plánování a brainstorming</option>
+                            </select>
                         </div>
-                    </div>
-                    <!-- Příklad konverzace -->
-                    <div class="mt-4 p-4 bg-white border rounded-lg">
-                        <p class="font-semibold">Váš dotaz:</p>
-                        <p class="p-3 bg-gray-100 rounded-md mt-2"><code>Ahoj, kdo jsi?</code></p>
-                        <hr class="my-4">
-                        <p class="font-semibold">Odpověď od Gemini (příklad):</p>
-                        <p class="p-3 bg-indigo-50 rounded-md mt-2">Jsem velký jazykový model, trénovaný společností Google.</p>
-                    </div>
-                </div>
-
-                <div class="step-card">
-                     <div class="flex items-start">
-                         <div class="step-number">3</div>
                         <div>
-                            <h3 class="text-xl font-semibold mb-2">Praktické využití: Napsání e-mailu</h3>
-                            <p class="mb-4">Gemini vám může ušetřit spoustu času. Zkuste ho požádat o vytvoření konceptu e-mailu.</p>
+                            <label for="prompt-spec" class="block text-sm font-medium text-gray-700">2. Zvolte typ úkolu:</label>
+                            <select id="prompt-spec" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                <!-- Options will be populated by JS -->
+                            </select>
                         </div>
                     </div>
-                     <!-- Příklad konverzace 2 -->
-                    <div class="mt-4 p-4 bg-white border rounded-lg">
-                        <p class="font-semibold">Váš dotaz:</p>
-                        <p class="p-3 bg-gray-100 rounded-md mt-2"><code>Napiš mi krátký a přátelský e-mail pro mého klienta Petra Nováka. Chci se ho zeptat, jak byl spokojený s naším posledním setkáním a navrhnout mu další schůzku na příští týden.</code></p>
-                        <hr class="my-4">
-                        <p class="font-semibold">Odpověď od Gemini (příklad):</p>
-                        <div class="p-3 bg-indigo-50 rounded-md mt-2 prose">
-                            <p><strong>Předmět:</strong> Naše poslední setkání a další kroky</p>
-                            <p>Dobrý den, Petře,</p>
-                            <p>doufám, že se máte dobře.</p>
-                            <p>Chtěl jsem se jen krátce zeptat, jak jste byl spokojený s naším posledním setkáním. Věřím, že pro vás bylo přínosné.</p>
-                            <p>Rád bych na naši debatu navázal a probral další kroky. Měl byste čas na krátkou schůzku někdy v průběhu příštího týdne?</p>
-                            <p>Dejte mi prosím vědět, jaké dny a časy by vám vyhovovaly.</p>
-                            <p>S přátelským pozdravem,</p>
-                            <p>[Vaše Jméno]</p>
+                    
+                    <div class="bg-gray-100 rounded-lg p-4">
+                         <label for="prompt-example" class="block text-sm font-medium text-gray-700 mb-2">3. Příklad vygenerovaného příkazu:</label>
+                        <textarea id="prompt-example" readonly rows="4" class="w-full p-2 border border-gray-200 rounded-md bg-white text-gray-700 resize-none"></textarea>
+                        <button id="copy-btn" class="mt-2 w-full sm:w-auto bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors">
+                            Zkopírovat příkaz
+                        </button>
+                    </div>
+                 </div>
+            </div>
+
+            <!-- Tipy -->
+            <div id="tipy" class="tab-pane hidden">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="prompt-card bg-white p-6 rounded-lg shadow-sm hover:shadow-lg hover:-translate-y-1">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Buďte konkrétní</h3>
+                        <p class="text-gray-600">Čím přesnější zadání, tím lepší výsledek. Místo "napiš o autech" zkuste "porovnej spotřebu a prostor v kufru u modelů Škoda Octavia a Hyundai i30 z roku 2025".</p>
+                    </div>
+                     <div class="prompt-card bg-white p-6 rounded-lg shadow-sm hover:shadow-lg hover:-translate-y-1">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Dejte mu roli</h3>
+                        <p class="text-gray-600">Zahajte příkaz určením role pro Gemini. Například: "Chovej se jako expert na online marketing a navrhni mi 3 témata pro blog" nebo "Jsi copywriter, napiš mi text pro..."</p>
+                    </div>
+                     <div class="prompt-card bg-white p-6 rounded-lg shadow-sm hover:shadow-lg hover:-translate-y-1">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Poskytněte kontext</h3>
+                        <p class="text-gray-600">Vysvětlete situaci. "Píšu e-mail pro klienta, který je naštvaný kvůli zpoždění. Tón musí být omluvný, ale profesionální."</p>
+                    </div>
+                     <div class="prompt-card bg-white p-6 rounded-lg shadow-sm hover:shadow-lg hover:-translate-y-1">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Určete formát</h3>
+                        <p class="text-gray-600">Požadujte konkrétní formát výstupu. "Odpověď chci ve formě tabulky se sloupci 'Výhody' a 'Nevýhody'." nebo "Vytvoř seznam s pěti odrážkami."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Na co pozor? -->
+            <div id="pozor" class="tab-pane hidden">
+                <div class="space-y-6">
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.636-1.21 2.862-1.21 3.498 0l6.886 13.138c.636 1.21-.474 2.763-1.75 2.763H3.12c-1.275 0-2.385-1.553-1.75-2.763L8.257 3.099zM10 14a1 1 0 110-2 1 1 0 010 2zm-1-4a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium text-yellow-800">Vždy ověřujte fakta</h3>
+                                <div class="mt-2 text-sm text-yellow-700">
+                                    <p>AI není neomylná a občas si může informace "vymyslet". Zvláště u důležitých dat, jmen nebo citací si výstup vždy ověřte z důvěryhodného zdroje.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-400"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium text-red-800">Chraňte své soukromí</h3>
+                                <div class="mt-2 text-sm text-red-700">
+                                    <p>Nikdy do Gemini nevkládejte citlivé osobní údaje, firemní tajemství nebo soukromé informace o klientech. Buďte opatrní, jaké informace sdílíte.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
         </main>
-
-        <footer class="text-center mt-12 text-sm text-gray-500">
-            <p>Tento návod byl vytvořen, aby vám usnadnil první kroky s Gemini. Experimentujte a objevujte!</p>
+        
+        <!-- Footer -->
+        <footer class="text-center mt-12">
+            <p class="text-sm text-gray-500">&copy; 2025 Vytvořeno s pomocí Google Gemini.</p>
         </footer>
-
     </div>
+
+    <script>
+        // Tab switching logic
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabPanes = document.querySelectorAll('.tab-pane');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.dataset.tab;
+
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('tab-active');
+                    btn.classList.add('text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+                });
+                button.classList.add('tab-active');
+                button.classList.remove('text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+
+                tabPanes.forEach(pane => {
+                    if (pane.id === tabId) {
+                        pane.classList.remove('hidden');
+                        pane.classList.add('active');
+                    } else {
+                        pane.classList.add('hidden');
+                        pane.classList.remove('active');
+                    }
+                });
+            });
+        });
+        
+        // Interactive prompt generator logic
+        const promptData = {
+            content: {
+                label: "Tvorba obsahu",
+                options: {
+                    email: {
+                        label: "E-mail klientovi",
+                        prompt: "Napiš mi krátký e-mail pro mého klienta, ve kterém se omlouvám za zpoždění projektu a navrhuji nový termín."
+                    },
+                    blog: {
+                        label: "Osnova pro blog",
+                        prompt: "Vytvoř mi osnovu pro blogový článek na téma '5 tipů pro efektivní networking'."
+                    },
+                    social: {
+                        label: "Příspěvek na sociální sítě",
+                        prompt: "Navrhni mi tři varianty příspěvku na LinkedIn o mém novém AI workshopu."
+                    }
+                }
+            },
+            info: {
+                label: "Práce s informacemi",
+                options: {
+                    summary: {
+                        label: "Shrnutí YouTube videa",
+                        prompt: "Shrň mi hlavní body tohoto YouTube videa do pěti odrážek: [vlož odkaz na video]"
+                    },
+                    pdf: {
+                        label: "Analýza PDF",
+                        prompt: "Nahraju ti PDF dokument. Najdi v něm všechny zmínky o 'smluvní pokutě' a vypiš mi je."
+                    },
+                    explain: {
+                        label: "Vysvětlení pojmu",
+                        prompt: "Jaké jsou klíčové rozdíly mezi s.r.o. a a.s. v českém právu? Vysvětli mi to jednoduše."
+                    }
+                }
+            },
+            plan: {
+                label: "Plánování a brainstorming",
+                options: {
+                    ideas: {
+                        label: "Generování nápadů",
+                        prompt: "Plánuji networkingovou akci 'Pod Pálavou'. Navrhni mi pět témat pro ice-breaker aktivity."
+                    },
+                    tools: {
+                        label: "Doporučení nástrojů",
+                        prompt: "Jsem advokát specializující se na korporátní právo. Jaké AI nástroje by mi mohly zefektivnit práci?"
+                    },
+                    trip: {
+                        label: "Plánování výletu",
+                        prompt: "Pomoz mi naplánovat víkendový výlet do Jeseníků pro dvě osoby."
+                    }
+                }
+            }
+        };
+
+        const goalSelect = document.getElementById('prompt-goal');
+        const specSelect = document.getElementById('prompt-spec');
+        const exampleTextarea = document.getElementById('prompt-example');
+        const copyBtn = document.getElementById('copy-btn');
+
+        function populateSpecOptions() {
+            const selectedGoal = goalSelect.value;
+            const specs = promptData[selectedGoal].options;
+            specSelect.innerHTML = '';
+            
+            for (const key in specs) {
+                const option = document.createElement('option');
+                option.value = key;
+                option.textContent = specs[key].label;
+                specSelect.appendChild(option);
+            }
+            updateExamplePrompt();
+        }
+
+        function updateExamplePrompt() {
+            const selectedGoal = goalSelect.value;
+            const selectedSpec = specSelect.value;
+            if (promptData[selectedGoal] && promptData[selectedGoal].options[selectedSpec]) {
+                exampleTextarea.value = promptData[selectedGoal].options[selectedSpec].prompt;
+            }
+        }
+
+        function copyPrompt() {
+            const textarea = document.createElement('textarea');
+            textarea.value = exampleTextarea.value;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                copyBtn.textContent = 'Zkopírováno!';
+                setTimeout(() => {
+                    copyBtn.textContent = 'Zkopírovat příkaz';
+                }, 2000);
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        goalSelect.addEventListener('change', populateSpecOptions);
+        specSelect.addEventListener('change', updateExamplePrompt);
+        copyBtn.addEventListener('click', copyPrompt);
+
+        // Initial population
+        populateSpecOptions();
+
+    </script>
 
 </body>
 </html>
-
