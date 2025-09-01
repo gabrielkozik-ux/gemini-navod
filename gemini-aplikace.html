@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Průvodce: Gemini a Aplikace Google</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .tab-active {
+            background-color: #4f46e5;
+            color: white;
+        }
+        .tab-inactive {
+            background-color: #e5e7eb;
+            color: #374151;
+        }
+        .content-panel {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .tip {
+            background-color: #eef2ff;
+            border-left: 4px solid #4f46e5;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 p-4 sm:p-6 md:p-8">
+
+    <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-10">
+
+        <!-- Header -->
+        <header class="text-center mb-10 border-b pb-6">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">Gemini a Aplikace Google</h1>
+            <p class="mt-3 text-lg text-gray-600">Váš interaktivní průvodce pro efektivnější práci.</p>
+        </header>
+
+        <!-- Sekce Aktivace -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4 text-indigo-700 flex items-center">
+                <span class="bg-indigo-100 text-indigo-700 rounded-full h-8 w-8 flex items-center justify-center mr-3 font-mono">1</span>
+                Než začnete: Aktivace
+            </h2>
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <p class="mb-4">Aby vše fungovalo, musíte Gemini nejprve povolit přístup k vašim aplikacím. Je to rychlé a bezpečné.</p>
+                <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                    <li>Otevřete Gemini na adrese <a href="https://gemini.google.com" target="_blank" class="text-indigo-600 hover:underline">gemini.google.com</a>.</li>
+                    <li>V menu klikněte na <strong>Nastavení</strong> (ikona ozubeného kola) a poté na <strong>Rozšíření</strong>.</li>
+                    <li>Ujistěte se, že máte zapnuté rozšíření <strong>Google Workspace</strong>.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Interaktivní sekce -->
+        <section>
+            <h2 class="text-2xl font-bold mb-4 text-indigo-700 flex items-center">
+                <span class="bg-indigo-100 text-indigo-700 rounded-full h-8 w-8 flex items-center justify-center mr-3 font-mono">2</span>
+                Jak to funguje: Magický znak "@"
+            </h2>
+            <p class="mb-6 text-gray-600">Klíčem ke všemu je znak zavináče (@). Kdykoliv ho v Gemini napíšete, zobrazí se vám nabídka aplikací. Vyberte si a zadejte úkol. Níže si můžete proklikat příklady.</p>
+
+            <!-- Tab Tlačítka -->
+            <div class="flex flex-wrap gap-2 mb-6 border-b border-gray-200 pb-4">
+                <button id="btn-gmail" data-target="panel-gmail" class="tab-button tab-active flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-all duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+                    @Gmail
+                </button>
+                <button id="btn-calendar" data-target="panel-calendar" class="tab-button tab-inactive flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-all duration-200">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/></svg>
+                    @Google Calendar
+                </button>
+                <button id="btn-drive" data-target="panel-drive" class="tab-button tab-inactive flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-all duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M7.71 3.29L1.29 9.71C.9 10.1.9 10.73.9 11.12v5.76c0 .39.31.71.71.71h5.76c.39 0 1.02 0 1.41-.38l6.42-6.42-7.49-7.5zm-1.42 2.82L10 10l-4.24 4.24-3.54-3.54L6.29 6.11zM19.07.93l-1.41 1.41 4.24 4.24 1.41-1.41c.39-.39.39-1.02 0-1.41l-2.83-2.83c-.39-.39-1.02-.39-1.41 0zM15 12l-4.24 4.24 4.24 4.24 7.07-7.07L15 12z"/></svg>
+                    @Google Drive
+                </button>
+            </div>
+
+            <!-- Tab Obsah -->
+            <div id="panels">
+                <!-- Panel Gmail -->
+                <div id="panel-gmail" class="content-panel">
+                    <h3 class="text-xl font-bold mb-4">@Gmail: Váš osobní asistent pro e-maily</h3>
+                    <ul class="list-disc list-inside space-y-3 mb-6 pl-2">
+                        <li><code class="bg-gray-200 px-2 py-1 rounded">@Gmail najdi mi e-maily od Petra Nováka ohledně fakturace.</code></li>
+                        <li><code class="bg-gray-200 px-2 py-1 rounded">@Gmail shrň mi nejdůležitější body z této konverzace.</code></li>
+                        <li><code class="bg-gray-200 px-2 py-1 rounded">@Gmail napiš krátký e-mail klientovi, kde potvrdím schůzku na středu.</code></li>
+                    </ul>
+                    <div class="tip p-4 rounded-lg">
+                        <p class="font-semibold text-indigo-800">💡 Tip z praxe:</p>
+                        <p class="text-indigo-700">Buďte co nejkonkrétnější. Čím přesněji popíšete, co hledáte (jméno, předmět, datum), tím lepší výsledky dostanete.</p>
+                    </div>
+                </div>
+
+                <!-- Panel Calendar -->
+                <div id="panel-calendar" class="content-panel hidden">
+                    <h3 class="text-xl font-bold mb-4">@Google Calendar: Mějte svůj čas pod kontrolou</h3>
+                    <ul class="list-disc list-inside space-y-3 mb-6 pl-2">
+                        <li><code class="bg-gray-200 px-2 py-1 rounded">@Google Calendar naplánuj mi schůzku s Janou na úterý ve 14:00.</code></li>
+                        <li><code class="bg-gray-200 px-2 py-1 rounded">@Google Calendar co mám na programu zítra dopoledne?</code></li>
+                        <li><code class="bg-gray-200 px-2 py-1 rounded">@Google Calendar přesuň brainstorming na pátek v 9:00.</code></li>
+                    </ul>
+                    <div class="tip p-4 rounded-lg">
+                        <p class="font-semibold text-indigo-800">💡 Tip z praxe:</p>
+                        <p class="text-indigo-700">Gemini dokáže vytvořit událost i z kontextu e-mailu. Stačí mu říct: <code class="bg-indigo-200 text-indigo-800 px-1 rounded-sm">@Google Calendar přidej mi tuto událost do kalendáře.</code></p>
+                    </div>
+                </div>
+
+                <!-- Panel Drive -->
+                <div id="panel-drive" class="content-panel hidden">
+                    <h3 class="text-xl font-bold mb-4">@Google Drive: Najděte jakýkoliv soubor</h3>
+                    <ul class="list-disc list-inside space-y-3 mb-6 pl-2">
+                        <li><code class="bg-gray-200 px-2 py-1 rounded">@Google Drive najdi mi prezentaci o networkingu z minulého měsíce.</code></li>
+                        <li><code class="bg-gray-200 px-2 py-1 rounded">@Google Drive shrň mi klíčové body z dokumentu "Analýza trhu 2025".</code></li>
+                        <li><code class="bg-gray-200 px-2 py-1 rounded">@Google Drive ukaž mi všechny dokumenty, které se jmenují "smlouva".</code></li>
+                    </ul>
+                    <div class="tip p-4 rounded-lg">
+                        <p class="font-semibold text-indigo-800">💡 Tip z praxe:</p>
+                        <p class="text-indigo-700">Nebojte se kombinovat příkazy. Například: <code class="bg-indigo-200 text-indigo-800 px-1 rounded-sm">@Drive najdi prezentaci a @Gmail ji pošli Petrovi.</code></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="text-center mt-8 text-gray-500 text-sm">
+        <p>Vytvořeno s pomocí AI. Experimentujte a zjednodušte si práci!</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.tab-button');
+            const panels = document.querySelectorAll('.content-panel');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Deaktivovat všechna tlačítka
+                    buttons.forEach(btn => {
+                        btn.classList.remove('tab-active');
+                        btn.classList.add('tab-inactive');
+                    });
+
+                    // Aktivovat kliknuté tlačítko
+                    button.classList.remove('tab-inactive');
+                    button.classList.add('tab-active');
+
+                    // Skrýt všechny panely
+                    panels.forEach(panel => {
+                        panel.classList.add('hidden');
+                    });
+
+                    // Zobrazit cílový panel
+                    const targetPanelId = button.getAttribute('data-target');
+                    const targetPanel = document.getElementById(targetPanelId);
+                    if (targetPanel) {
+                        targetPanel.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
