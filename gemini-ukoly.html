@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Průvodce: Pravidelné Úkoly v Gemini</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .tab-active {
+            background-color: #4f46e5;
+            color: white;
+        }
+        .tab-inactive {
+            background-color: #e5e7eb;
+            color: #374151;
+            transform: scale(0.95);
+        }
+        .tab-button {
+            transition: all 0.2s ease-in-out;
+        }
+        .tab-button:hover {
+            transform: scale(1);
+        }
+        .content-panel {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .tip {
+            background-color: #eef2ff;
+            border-left: 4px solid #4f46e5;
+        }
+        /* Styling pro responzivní video */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 0.75rem; /* 12px */
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 p-4 sm:p-6 md:p-8">
+
+    <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-10">
+
+        <!-- Header -->
+        <header class="text-center mb-10 border-b pb-6">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">Pravidelné Úkoly v Gemini</h1>
+            <p class="mt-3 text-lg text-gray-600">Naučte se automatizovat své opakující se úkoly a schůzky.</p>
+        </header>
+
+        <!-- Princip -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4 text-indigo-700 flex items-center">
+                <span class="bg-indigo-100 text-indigo-700 rounded-full h-8 w-8 flex items-center justify-center mr-3 font-mono">1</span>
+                Jak to funguje?
+            </h2>
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <p class="mb-2 text-gray-700">Gemini nemá vlastní systém připomínek, ale umí skvěle pracovat s <strong>Google Kalendářem</strong> a <strong>Google Úkoly</strong>.</p>
+                <p class="text-gray-700">Stačí mu přirozeným jazykem říct, co, kdy a jak často má naplánovat. Klíčem je být co nejvíce konkrétní.</p>
+            </div>
+        </section>
+
+        <!-- Interaktivní Příklady -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-indigo-700 flex items-center">
+                 <span class="bg-indigo-100 text-indigo-700 rounded-full h-8 w-8 flex items-center justify-center mr-3 font-mono">2</span>
+                Příklady z praxe
+            </h2>
+
+            <!-- Tab Tlačítka -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
+                <button data-target="panel-daily" class="tab-button tab-active px-4 py-2 rounded-full font-semibold">🏃‍♂️ Denní</button>
+                <button data-target="panel-weekly" class="tab-button tab-inactive px-4 py-2 rounded-full font-semibold">🗓️ Týdenní</button>
+                <button data-target="panel-monthly" class="tab-button tab-inactive px-4 py-2 rounded-full font-semibold">🧾 Měsíční/Roční</button>
+            </div>
+
+            <!-- Tab Obsah -->
+            <div id="panels">
+                <!-- Panel Denní -->
+                <div id="panel-daily" class="content-panel bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Denní rutina</h3>
+                    <ul class="list-disc list-inside space-y-3 mb-6 pl-2">
+                        <li><code class="bg-gray-200 px-2 py-1 rounded">@Google Calendar nastav mi každý pracovní den v 9:00 úkol "zkontrolovat e-maily od klíčových klientů".</code></li>
+                        <li><code class="bg-gray-200 px-2 py-1 rounded">Přidej mi do Google Úkolů denní připomínku na "Užít 30 minut sluníčka".</code></li>
+                        <li><code class="bg-gray-200 px-2 py-1 rounded">Vytvoř mi v kalendáři každý den v 18:00 událost "Cvičení".</code></li>
+                    </ul>
+                </div>
+
+                <!-- Panel Týdenní -->
+                <div id="panel-weekly" class="content-panel hidden bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Týdenní plánování</h3>
+                     <ul class="list-disc list-inside space-y-3 mb-6 pl-2">
+                        <li><code class="bg-gray-200 px-2 py-1 rounded">@Google Calendar založ mi každé pondělí v 10:00 opakovanou schůzku "Týmová porada IUSTORIA".</code></li>
+                        <li><code class="bg-gray-200 px-2 py-1 rounded">Přidej mi na každý pátek v 15:00 úkol "připravit týdenní report".</code></li>
+                        <li><code class="bg-gray-200 px-2 py-1 rounded">Potřebuju si každé úterý a čtvrtek ráno zablokovat hodinu na přípravu AI workshopů.</code></li>
+                    </ul>
+                </div>
+
+                <!-- Panel Měsíční/Roční -->
+                <div id="panel-monthly" class="content-panel hidden bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Dlouhodobé připomínky</h3>
+                    <ul class="list-disc list-inside space-y-3 mb-6 pl-2">
+                        <li><code class="bg-gray-200 px-2 py-1 rounded">@Google Calendar připomeň mi každého 15. v měsíci "zaplatit faktury".</code></li>
+                        <li><code class="bg-gray-200 px-2 py-1 rounded">Vytvoř mi každoroční událost na 27. července "Výročí založení Pálava Horizons, s.r.o.".</code></li>
+                        <li><code class="bg-gray-200 px-2 py-1 rounded">Nastav mi každé první úterý v měsíci připomínku na "Zalít květiny v kanceláři".</code></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tip mt-8 p-4 rounded-lg">
+                <p class="font-semibold text-indigo-800">💡 Klíč k úspěchu:</p>
+                <p class="text-indigo-700">Buďte přirození, ale konkrétní. Místo "připomeň poradu" řekněte raději "připomeň mi každou středu v 9:00 poradu s týmem IUSTORIA". Po zadání si výsledek pro jistotu zkontrolujte v kalendáři.</p>
+            </div>
+        </section>
+
+        <!-- Video Sekce -->
+        <section>
+             <h2 class="text-2xl font-bold mb-4 text-indigo-700 flex items-center">
+                 <span class="bg-indigo-100 text-indigo-700 rounded-full h-8 w-8 flex items-center justify-center mr-3 font-mono">3</span>
+                Video návod
+            </h2>
+            <p class="mb-6 text-gray-600">Podívejte se, jak si vytvořit seznam úkolů pomocí Gemini a Google Tasks v tomto krátkém videu.</p>
+            <div class="video-container shadow-lg">
+                <iframe src="https://www.youtube.com/embed/Xr89ZMqABtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="text-center mt-8 text-gray-500 text-sm">
+        <p>Experimentujte a zjednodušte si práci s Gemini!</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.tab-button');
+            const panels = document.querySelectorAll('.content-panel');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Deaktivace všech tlačítek
+                    buttons.forEach(btn => {
+                        btn.classList.remove('tab-active');
+                        btn.classList.add('tab-inactive');
+                    });
+
+                    // Aktivace kliknutého tlačítka
+                    button.classList.remove('tab-inactive');
+                    button.classList.add('tab-active');
+
+                    // Skrytí všech panelů
+                    panels.forEach(panel => {
+                        panel.classList.add('hidden');
+                    });
+
+                    // Zobrazení cílového panelu
+                    const targetPanelId = button.getAttribute('data-target');
+                    const targetPanel = document.getElementById(targetPanelId);
+                    if (targetPanel) {
+                        targetPanel.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+
