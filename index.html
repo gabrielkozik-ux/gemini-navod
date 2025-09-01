@@ -15,8 +15,12 @@
             color: #4f46e5;
             font-weight: 600;
         }
-        .prompt-card {
+        .prompt-card, .guide-card {
             transition: all 0.3s ease-in-out;
+        }
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
         }
     </style>
 </head>
@@ -33,39 +37,24 @@
             <p class="mt-2 text-lg text-gray-600">Váš chytrý asistent pro práci, studium i zábavu.</p>
         </header>
 
-        <!-- Tabs -->
+        <!-- Tabs for core info -->
         <div class="mb-8 border-b border-gray-200">
-            <nav class="flex flex-wrap -mb-px" aria-label="Tabs">
-                <button class="tab-btn tab-active w-full sm:w-auto text-center whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-tab="co-je-gemini">
+            <nav class="flex flex-wrap -mb-px justify-center" aria-label="Tabs">
+                <button class="tab-btn tab-active w-full sm:w-auto text-center whitespace-nowrap py-4 px-2 border-b-2 font-medium text-sm" data-tab="co-je-gemini">
                     Co je Gemini?
                 </button>
-                <button class="tab-btn w-full sm:w-auto text-center whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="jak-zacit">
+                <button class="tab-btn w-full sm:w-auto text-center whitespace-nowrap py-4 px-2 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="jak-zacit">
                     Jak začít?
                 </button>
-                <button class="tab-btn w-full sm:w-auto text-center whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="co-umi">
+                <button class="tab-btn w-full sm:w-auto text-center whitespace-nowrap py-4 px-2 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="co-umi">
                     Co umí? (Interaktivně)
                 </button>
-                 
-                <button class="tab-btn w-full sm:w-auto text-center whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="tipy">
+                <button class="tab-btn w-full sm:w-auto text-center whitespace-nowrap py-4 px-2 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="tipy">
                     Tipy na příkazy
                 </button>
-                <button class="tab-btn w-full sm:w-auto text-center whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="pozor">
+                <button class="tab-btn w-full sm:w-auto text-center whitespace-nowrap py-4 px-2 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="pozor">
                     Na co pozor?
                 </button>
-<a href="gemini-aplikace.html" class="tab-btn w-full sm:w-auto text-center whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300">
-    <b>Gemini a Aplikace</b>
-</a>               
-<a href="gemini-ukoly.html" class="tab-btn w-full sm:w-auto text-center whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                    <b>Pravidelné Úkoly</b>
-                </a>
-                </a>               
-<a href="gemini-informace.html" class="tab-btn w-full sm:w-auto text-center whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                    <b>Uživatelské informace</b>
-                </a>
-                </a>               
-<a href="gemini-gems.html" class="tab-btn w-full sm:w-auto text-center whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                    <b>Gemini Gems</b>
-                </a>
             </nav>
         </div>
 
@@ -191,9 +180,82 @@
             </div>
         </main>
         
+        <!-- Section for subpage guides -->
+        <section class="mt-16">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Prozkoumejte Praktické Návody</h2>
+            <p class="text-center text-gray-600 mb-8">Ponořte se hlouběji do konkrétních funkcí a zvyšte svou produktivitu.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1: Gemini and Apps -->
+                <a href="gemini-aplikace.html" class="guide-card group block bg-white p-6 rounded-lg shadow-sm border border-gray-200 text-center">
+                    <div class="flex justify-center mb-4">
+                        <div class="bg-indigo-100 rounded-full p-3 group-hover:bg-indigo-200 transition-colors">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-600"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M15.5 8.5 12 12l-3.5 3.5"/><path d="m8.5 8.5 7 7"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="font-semibold text-lg text-gray-900 mb-2">Gemini a Aplikace</h3>
+                    <p class="text-sm text-gray-600">Propojte Gemini s Gmailem, Kalendářem a Diskem.</p>
+                </a>
+                <!-- Card 2: Regular Tasks -->
+                <a href="gemini-ukoly.html" class="guide-card group block bg-white p-6 rounded-lg shadow-sm border border-gray-200 text-center">
+                    <div class="flex justify-center mb-4">
+                        <div class="bg-indigo-100 rounded-full p-3 group-hover:bg-indigo-200 transition-colors">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-600"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="font-semibold text-lg text-gray-900 mb-2">Pravidelné Úkoly</h3>
+                    <p class="text-sm text-gray-600">Automatizujte své opakující se úkoly a schůzky.</p>
+                </a>
+                <!-- Card 3: User Info -->
+                <a href="gemini-informace.html" class="guide-card group block bg-white p-6 rounded-lg shadow-sm border border-gray-200 text-center">
+                     <div class="flex justify-center mb-4">
+                        <div class="bg-indigo-100 rounded-full p-3 group-hover:bg-indigo-200 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-600"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="font-semibold text-lg text-gray-900 mb-2">Uživatelské informace</h3>
+                    <p class="text-sm text-gray-600">Naučte Gemini, kdo jste, pro odpovědi na míru.</p>
+                </a>
+                <!-- Card 4: Gemini Gems -->
+                <a href="gemini-gems.html" class="guide-card group block bg-white p-6 rounded-lg shadow-sm border border-gray-200 text-center">
+                     <div class="flex justify-center mb-4">
+                        <div class="bg-indigo-100 rounded-full p-3 group-hover:bg-indigo-200 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-600"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M12 22V9"/><path d="m3.29 9 8.71 13 8.71-13"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="font-semibold text-lg text-gray-900 mb-2">Gemini Gems</h3>
+                    <p class="text-sm text-gray-600">Vytvořte si vlastní specializované AI asistenty.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section for other work -->
+        <section class="mt-16">
+            <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+                <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Ukázky další tvorby</h2>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://www.gabrielkozik.com" target="_blank" rel="noopener noreferrer" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm transition-colors">
+                        Osobní portfolio
+                    </a>
+                    <a href="https://games-gamma-six.vercel.app/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm transition-colors">
+                        Herní Experimenty
+                    </a>
+                    <a href="https://palavakodex.vercel.app/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm transition-colors">
+                        Pálava Kodex
+                    </a>
+                    <a href="https://sunset-khaki.vercel.app/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm transition-colors">
+                        Sunset App
+                    </a>
+                     <a href="https://www.youtube.com/@gabriel-kozik" target="_blank" rel="noopener noreferrer" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm transition-colors">
+                        YouTube Kanál
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
         <!-- Footer -->
         <footer class="text-center mt-12">
-            <p class="text-sm text-gray-500">&copy; 2025 Vytvořeno s pomocí Google Gemini.</p>
+            <p class="text-sm text-gray-500">&copy; 2025 <b><a href="https://gabrielkozik.com" target="_blank" rel="noopener noreferrer">gabrielkozik.com</a></b> Vytvořeno s pomocí Google Gemini.</p>
         </footer>
     </div>
 
@@ -204,24 +266,27 @@
 
         tabButtons.forEach(button => {
             button.addEventListener('click', () => {
-                const tabId = button.dataset.tab;
+                // Check if the clicked element is a button and has a data-tab attribute
+                if (button.tagName === 'BUTTON' && button.dataset.tab) {
+                    const tabId = button.dataset.tab;
 
-                tabButtons.forEach(btn => {
-                    btn.classList.remove('tab-active');
-                    btn.classList.add('text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
-                });
-                button.classList.add('tab-active');
-                button.classList.remove('text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('tab-active');
+                        btn.classList.add('text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+                    });
+                    button.classList.add('tab-active');
+                    button.classList.remove('text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
 
-                tabPanes.forEach(pane => {
-                    if (pane.id === tabId) {
-                        pane.classList.remove('hidden');
-                        pane.classList.add('active');
-                    } else {
-                        pane.classList.add('hidden');
-                        pane.classList.remove('active');
-                    }
-                });
+                    tabPanes.forEach(pane => {
+                        if (pane.id === tabId) {
+                            pane.classList.remove('hidden');
+                            pane.classList.add('active');
+                        } else {
+                            pane.classList.add('hidden');
+                            pane.classList.remove('active');
+                        }
+                    });
+                }
             });
         });
         
@@ -286,6 +351,7 @@
         const copyBtn = document.getElementById('copy-btn');
 
         function populateSpecOptions() {
+            if (!goalSelect) return; // Guard clause
             const selectedGoal = goalSelect.value;
             const specs = promptData[selectedGoal].options;
             specSelect.innerHTML = '';
@@ -300,6 +366,7 @@
         }
 
         function updateExamplePrompt() {
+            if (!goalSelect) return; // Guard clause
             const selectedGoal = goalSelect.value;
             const selectedSpec = specSelect.value;
             if (promptData[selectedGoal] && promptData[selectedGoal].options[selectedSpec]) {
@@ -308,6 +375,7 @@
         }
 
         function copyPrompt() {
+            if (!exampleTextarea) return; // Guard clause
             const textarea = document.createElement('textarea');
             textarea.value = exampleTextarea.value;
             document.body.appendChild(textarea);
@@ -323,17 +391,20 @@
             }
             document.body.removeChild(textarea);
         }
+        
+        if (goalSelect && specSelect && exampleTextarea && copyBtn) {
+            goalSelect.addEventListener('change', populateSpecOptions);
+            specSelect.addEventListener('change', updateExamplePrompt);
+            copyBtn.addEventListener('click', copyPrompt);
 
-        goalSelect.addEventListener('change', populateSpecOptions);
-        specSelect.addEventListener('change', updateExamplePrompt);
-        copyBtn.addEventListener('click', copyPrompt);
-
-        // Initial population
-        populateSpecOptions();
+            // Initial population
+            populateSpecOptions();
+        }
 
     </script>
 
 </body>
 </html>
+
 
 
