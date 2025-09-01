@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jak začít s Google Gemini</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .step-card {
+            background-color: #f9fafb; /* gray-50 */
+            border-left: 4px solid #4f46e5; /* indigo-600 */
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+        .step-number {
+            background-color: #4f46e5; /* indigo-600 */
+            color: white;
+            border-radius: 9999px;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        code {
+            background-color: #e5e7eb; /* gray-200 */
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.375rem;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto max-w-3xl p-4 sm:p-6 md:p-8">
+
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold text-gray-900">Vítejte v Google Gemini</h1>
+            <p class="text-lg text-gray-600 mt-2">Váš průvodce krok za krokem pro první použití.</p>
+        </header>
+
+        <main>
+            <!-- Část 1: Přihlášení -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-semibold mb-6 border-b-2 border-indigo-500 pb-2">1. Přihlášení do Gemini</h2>
+
+                <div class="step-card flex items-start">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Navštivte stránku</h3>
+                        <p>Otevřete si webový prohlížeč (například Chrome, Firefox, nebo Safari) a zadejte do adresního řádku adresu: <a href="https://gemini.google.com" target="_blank" class="text-indigo-600 hover:underline font-medium">gemini.google.com</a></p>
+                    </div>
+                </div>
+
+                <div class="step-card flex items-start">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Klikněte na "Přihlásit se"</h3>
+                        <p>V pravém horním rohu obrazovky najdete tlačítko pro přihlášení. Klikněte na něj.</p>
+                        <!-- Příklad obrázku tlačítka -->
+                        <div class="mt-4 p-3 bg-white border rounded-lg inline-block shadow-sm">
+                             <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded">Přihlásit se</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card flex items-start">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Použijte svůj Google účet</h3>
+                        <p>Zobrazí se vám standardní přihlašovací obrazovka od Google. Zadejte e-mail a heslo ke svému stávajícímu Google účtu (např. Gmail). Pokud už jste v prohlížeči přihlášení, tento krok se může přeskočit automaticky.</p>
+                        <p class="mt-2 text-sm text-gray-500">Nemusíte si vytvářet žádnou novou registraci, stačí vám účet, který již používáte pro Gmail, Google Disk atd.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Část 2: Jak Gemini používat -->
+            <section>
+                <h2 class="text-2xl font-semibold mb-6 border-b-2 border-indigo-500 pb-2">2. Jak Gemini používat</h2>
+
+                 <div class="step-card flex items-start">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Zadejte svůj dotaz (prompt)</h3>
+                        <p>Po přihlášení uvidíte hlavní rozhraní, které připomíná chat. Dole na stránce najdete pole s textem "Zadejte zde svůj dotaz". Zde můžete psát své otázky, příkazy nebo úkoly pro Gemini.</p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="flex items-start">
+                         <div class="step-number">2</div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Jednoduchý příklad</h3>
+                            <p class="mb-4">Zkuste napsat něco jednoduchého a stiskněte Enter nebo klikněte na ikonu odeslání (obvykle papírové letadýlko).</p>
+                        </div>
+                    </div>
+                    <!-- Příklad konverzace -->
+                    <div class="mt-4 p-4 bg-white border rounded-lg">
+                        <p class="font-semibold">Váš dotaz:</p>
+                        <p class="p-3 bg-gray-100 rounded-md mt-2"><code>Ahoj, kdo jsi?</code></p>
+                        <hr class="my-4">
+                        <p class="font-semibold">Odpověď od Gemini (příklad):</p>
+                        <p class="p-3 bg-indigo-50 rounded-md mt-2">Jsem velký jazykový model, trénovaný společností Google.</p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                     <div class="flex items-start">
+                         <div class="step-number">3</div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Praktické využití: Napsání e-mailu</h3>
+                            <p class="mb-4">Gemini vám může ušetřit spoustu času. Zkuste ho požádat o vytvoření konceptu e-mailu.</p>
+                        </div>
+                    </div>
+                     <!-- Příklad konverzace 2 -->
+                    <div class="mt-4 p-4 bg-white border rounded-lg">
+                        <p class="font-semibold">Váš dotaz:</p>
+                        <p class="p-3 bg-gray-100 rounded-md mt-2"><code>Napiš mi krátký a přátelský e-mail pro mého klienta Petra Nováka. Chci se ho zeptat, jak byl spokojený s naším posledním setkáním a navrhnout mu další schůzku na příští týden.</code></p>
+                        <hr class="my-4">
+                        <p class="font-semibold">Odpověď od Gemini (příklad):</p>
+                        <div class="p-3 bg-indigo-50 rounded-md mt-2 prose">
+                            <p><strong>Předmět:</strong> Naše poslední setkání a další kroky</p>
+                            <p>Dobrý den, Petře,</p>
+                            <p>doufám, že se máte dobře.</p>
+                            <p>Chtěl jsem se jen krátce zeptat, jak jste byl spokojený s naším posledním setkáním. Věřím, že pro vás bylo přínosné.</p>
+                            <p>Rád bych na naši debatu navázal a probral další kroky. Měl byste čas na krátkou schůzku někdy v průběhu příštího týdne?</p>
+                            <p>Dejte mi prosím vědět, jaké dny a časy by vám vyhovovaly.</p>
+                            <p>S přátelským pozdravem,</p>
+                            <p>[Vaše Jméno]</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12 text-sm text-gray-500">
+            <p>Tento návod byl vytvořen, aby vám usnadnil první kroky s Gemini. Experimentujte a objevujte!</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
